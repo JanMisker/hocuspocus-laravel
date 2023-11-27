@@ -27,7 +27,7 @@ class Document extends Model
     public function scopeByModel($query, $object)
     {
         $query
-            ->where('model_type', get_class($object))
+            ->where('model_type', $object->getMorphClass())
             ->where('model_id', $object->id);
     }
 }

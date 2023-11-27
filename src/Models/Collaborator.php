@@ -68,7 +68,7 @@ class Collaborator extends Model
 
         if (!$pivot) {
             $pivot = $this->documents()->create([
-                'model_type' => get_class($document),
+                'model_type' => $document->getMorphClass(),
                 'model_id' => $document->id,
                 'connected' => true,
                 'connected_at' => now(),
