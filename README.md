@@ -113,6 +113,9 @@ const server = Server.configure({
       secret: '459824aaffa928e05f5b1caec411ae5f',
 
       transformer: TiptapTransformer,
+
+      events: [Events.onConnect, Events.onCreate, Events.onChange, Events.onDisconnect],
+
     }),
   ],
 })
