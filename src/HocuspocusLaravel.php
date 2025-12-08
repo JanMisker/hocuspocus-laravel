@@ -56,6 +56,7 @@ class HocuspocusLaravel
         $document = $this->getDocument($json['payload']['documentName']);
 
         if (!$user->can(config('hocuspocus-laravel.policy_method_name'), $document)) {
+            \Illuminate\Support\Facades\Log::warning('User {user} gets 403 on {document}', ['user' => optional($user)->id, 'document' => optional($document)->id]);            
             throw new AuthorizationException("User is not allowed to access this document");
         }
 
